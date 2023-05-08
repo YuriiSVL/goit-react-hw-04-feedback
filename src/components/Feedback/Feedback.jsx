@@ -25,6 +25,9 @@ export default class Feedback extends React.Component {
     });
   };
 
+  countTotalFeedback() {}
+  countPositiveFeedbackPercentage() {}
+
   render() {
     return (
       <div className="Feedback">
@@ -42,6 +45,15 @@ export default class Feedback extends React.Component {
         <p>Good: {this.state.good}</p>
         <p>Neutral: {this.state.neutral} </p>
         <p>Bad: {this.state.bad} </p>
+        <p>Total: {this.state.good + this.state.neutral + this.state.bad} </p>
+        <p>
+          Positive feedback:{' '}
+          {Math.round(
+            (this.state.good * 100) /
+              (this.state.good + this.state.neutral + this.state.bad)
+          )}
+          %
+        </p>
       </div>
     );
   }
